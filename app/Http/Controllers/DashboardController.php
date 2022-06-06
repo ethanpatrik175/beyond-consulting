@@ -18,4 +18,16 @@ class DashboardController extends Controller
             return redirect(route('front.home'));
         }
     }
+
+    public function isAdmin()
+    {
+        if(Auth::check())
+        {
+            return view('backend.admin.dashboard');
+        }
+        else
+        {
+            return redirect(route('front.home'));
+        }
+    }
 }
