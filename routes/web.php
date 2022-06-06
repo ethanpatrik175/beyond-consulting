@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use PhpParser\Node\Stmt\Global_;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +69,4 @@ Route::middleware(['auth'])->prefix('/admin')->group(function(){
 });
 
 Route::post('/create-slug', [GlobalController::class, 'createSlug'])->name('create.slug');
-
+Route::get('/clear', [GlobalController::class, 'clear'])->name('clear');
