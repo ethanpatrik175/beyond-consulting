@@ -21,9 +21,4 @@ class GlobalController extends Controller
 
         return 'Clear Done!';
     }
-
-    public function getPath()
-    {
-        return asset('assets/');
-    }
 }

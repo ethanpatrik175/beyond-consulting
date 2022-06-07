@@ -76,5 +76,7 @@ Route::middleware(['auth'])->prefix()->group(function(){
 });
 
 Route::post('/create-slug', [GlobalController::class, 'createSlug'])->name('create.slug');
-Route::get('/file-path',  [GlobalController::class, 'getPath'])->name('get.assets.path');
+Route::get('/file-path', function(){
+    return asset('/');
+})->name('get.assets.path');
 Route::get('/clear', [GlobalController::class, 'clear'])->name('clear');
