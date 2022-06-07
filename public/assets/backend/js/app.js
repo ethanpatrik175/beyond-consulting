@@ -10,17 +10,6 @@
         siteOrigin + '/assets/web/beyond-consulting/';
     }
 
-    $.ajax({
-        url: route('get.assets.path'),
-        type: "GET",
-        success: function (e) {
-            siteOrigin = e;
-        },
-        error: function (e) {
-            console.log(e);
-        }
-    });
-
     function s(t) {
         document.getElementById("header-lang-img") && ("en" == t ? document.getElementById("header-lang-img").src = "assets/images/flags/us.jpg" : "sp" == t ? document.getElementById("header-lang-img").src = "assets/images/flags/spain.jpg" : "gr" == t ? document.getElementById("header-lang-img").src = "assets/images/flags/germany.jpg" : "it" == t ? document.getElementById("header-lang-img").src = "assets/images/flags/italy.jpg" : "ru" == t && (document.getElementById("header-lang-img").src = "assets/images/flags/russia.jpg"), localStorage.setItem("language", t), null == (n = localStorage.getItem("language")) && s(a), e.getJSON("assets/lang/" + n + ".json", function (t) {
             e("html").attr("lang", n), e.each(t, function (t, n) {
