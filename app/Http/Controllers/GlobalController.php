@@ -24,6 +24,6 @@ class GlobalController extends Controller
 
     public function getPath()
     {
-        return asset('assets/');
+        return public_path();
     }
 }
