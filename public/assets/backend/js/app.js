@@ -4,10 +4,8 @@
         a = "en";
 
     let siteOrigin = window.location.origin;
-
-    if(siteOrigin == 'https://yourwebsitedemos.com')
-    {
-        siteOrigin + '/assets/web/beyond-consulting/';
+    if (siteOrigin == 'https://yourwebsitedemos.com') {
+        siteOrigin = 'https://yourwebsitedemos.com/web/beyond-consulting/';
     }
 
     function s(t) {
