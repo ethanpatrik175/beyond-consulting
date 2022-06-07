@@ -79,6 +79,9 @@
                                         <p>by <span
                                                 class="text-white">{{ @$event->addedBy->first_name . ' ' . @$event->addedBy->last_name }}
                                             </span> - {{ date('M d, Y', strtotime($event->created_at)) }}</p>
+                                        <p class="mt-2">
+                                            <span> <a href="{{route('book.ticket')}}">Book Ticket Now</a> </span>
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="event-comments">

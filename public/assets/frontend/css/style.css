@@ -1626,4 +1626,8 @@
     .testimonial .testimonial-box{
         padding: 20px;
     }
+
+    .red-btn{
+        background-color: #e50000 !important;
+    }
 }

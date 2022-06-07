@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
@@ -46,6 +47,7 @@ Route::middleware(['auth', 'verified'])->name('general.')->group(function(){
     Route::post('/change-picture-process', [UserController::class, 'changePictureProcess'])->name('change.picture.process');
 });
 
+/** Admin Routes */
 Route::middleware(['auth'])->prefix('/admin')->group(function(){
     Route::resource('speakers', SpeakerController::class);
     Route::get('/speaker/trash', [SpeakerController::class, 'trash'])->name('speakers.trash');
@@ -66,6 +68,11 @@ Route::middleware(['auth'])->prefix('/admin')->group(function(){
     Route::get('/event/trash', [EventController::class, 'trash'])->name('events.trash');
     Route::post('/event/update-status', [EventController::class, 'updateStatus'])->name('events.update.status');
     Route::post('/event/restore', [EventController::class, 'restore'])->name('events.restore');
+});
+/**End Admin Routes */
+
+Route::middleware(['auth'])->prefix()->group(function(){
+    Route::get('/book-ticket', [CustomerController::class, 'bookTicket'])->name('book.ticket');
 });
 
 Route::post('/create-slug', [GlobalController::class, 'createSlug'])->name('create.slug');

@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <p>Remember It ? <a href="{{route('admin.login')}}" class="font-weight-medium text-primary"><i class="mdi mdi-key"></i> Login here</a> OR <a href="{{route('front.home')}}" class="font-weight-medium text-primary">HOME</a> </p>
+                            <p>Remember It ? <a href="{{route('login')}}" class="font-weight-medium text-primary"><i class="mdi mdi-key"></i> Login here</a> OR <a href="{{route('front.home')}}" class="font-weight-medium text-primary">HOME</a> </p>
                             <p>&copy; {{ date('Y', time()) }} {{ config('app.name') }}</p>
                         </div>
 
