@@ -10,30 +10,61 @@
         <x-banner banner-title="Volunteer Sign Up" />
         <section class="volunteer-signup py-lg-5">
             <div class="container">
-                <form>
+                <form method="POST" action="{{ route('register') }}" class="needs-validation custom-validation" novalidate>
                     <div class="row">
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-group">
+                                <label for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name" data-parsley-required-message="" placeholder="First Name" required
+                                    autofocus />
+                                <div class="invalid-feedback">
+                                    Please enter your first name.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" id="last_name" name="last_name" placeholder="Last Name" />
+                                <div class="invalid-feedback">
+                                    Please enter your last name.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Email" required/>
+                                <div class="invalid-feedback">
+                                    Please enter your email
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="Password" required />
+                                <div class="invalid-feedback">
+                                    Please enter password.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <div class="form-group">
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" id="confirm_password" name="confirm_password"
+                                    placeholder="Confirm Password" data-parsley-equalto="#password" data-parsley-trigger="keyup" required />
+                                <div class="invalid-feedback">
+                                    Please retype password to confirm.
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-12">
-                            <label for="first-name">First Name</label>
-                            <input type="text" placeholder="Type Here..." name="first-name" id="first-name">
-
-                            <label for="last-name" class="mt-4">Last Name</label>
-                            <input type="text" placeholder="Type Here..." name="last-name" id="last-name">
-
-                            <label for="email" class="mt-4">Email</label>
-                            <input type="email" placeholder="Type Here..." name="email" id="email">
-
-                            <label for="password" class="mt-4">Password</label>
-                            <input type="password" placeholder="Type Here..." name="password" id="password">
-
-                            <label for="password" class="mt-4">Confirm Password</label>
-                            <input type="password" placeholder="Type Here..." name="password" id="password">
-
                             <div class="terms mt-3">
-                                <input type="checkbox" name="agree" id="agree">
+                                <input type="checkbox" name="agree" id="agree" />
                                 <label for="agree">Agree Terms & Conditions</label>
                             </div>
                         </div>
-
                     </div>
                     <div class="links mt-4 text-center">
                         <button type="submit" class="red-button">Sign Up Now</button>
