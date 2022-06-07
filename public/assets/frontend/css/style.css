@@ -1,4 +1,4 @@
-    :root {
+:root {
     --red: #e50000;
     --maxmenuwh: 70px;
     }
@@ -125,6 +125,35 @@
     line-height: 40px;
     background: var(--red);
     border-radius: 50px;
+    }
+    
+    .top-menu-items .notification-bar li {
+        position: relative;
+    }
+    
+    .top-menu-items .notification-bar li ul{
+        position: absolute;
+        top: 45px;
+        left: 0px;
+        width: 200px;
+        background: #000;
+        border-radius: 5px;
+        padding: 10px 20px;
+        display: none;
+    }
+    
+    .top-menu-items .notification-bar li ul li p {
+        color: #b1b1b1;
+        margin: 0;
+        font-size: 12px;
+    }
+    
+    .top-menu-items .notification-bar li ul li p span{
+        font-weight: 700;
+    }
+    
+    .top-menu-items .notification-bar li:hover ul {
+        display: block;
     }
     
     .main-container {
@@ -287,7 +316,10 @@
     .main-container.about-page .about-us .section-heading>h1,
     .main-container.about-page .how-we-started .section-heading>h1,
     .main-container.testimonial-page .testimonial .section-heading>h1,
-    .main-container.contact-page .contact-us .section-heading>h1 {
+    .main-container.contact-page .contact-us .section-heading>h1,
+    .main-container.travel-detail-page .travel-details .section-heading>h1, 
+    .main-container.single-blog-page .blog-section .section-heading>h1
+    {
     text-shadow: none;
     }
     
@@ -320,14 +352,15 @@
     .main-container.new-events-page .new-events,
     .main-container.events-page .events,
     .main-container.events-page .events-archive,
-    .main-container.event-group-page .event-group {
+    .main-container.event-group-page .event-group, .main-container.travel-detail-page .travel-details, 
+    .main-container.single-blog-page .blog-section{
     background: #383838;
     }
     
     .how-it-work .section-heading>h5,
     .why-choose-us .section-heading>h5,
     .testimonial .section-heading>h5,
-    .main-container.about-page .about-us .section-heading>h5 {
+    .main-container.about-page .about-us .section-heading>h5,  .main-container.single-blog-page .blog-section .section-heading>h5 {
     color: var(--red);
     }
     
@@ -740,7 +773,7 @@
     .main-container.charity-page .charity form input,
     .main-container.new-events-page .new-events form input,
     .main-container.new-events-page .new-events form textarea,
-    .main-container.new-events-page .new-events form .upload-div {
+    .main-container.new-events-page .new-events form .upload-div, .main-container.single-product .travel-details .prod-desc textarea, .main-container.checkout input, .main-container.single-product .travel-details .prod-desc textarea, .main-container.checkout select, .main-container.checkout textarea {
     width: 100%;
     background: transparent;
     border: 1px solid #b1b1b1;
@@ -749,6 +782,38 @@
     outline: none;
     color: #b1b1b1;
     }
+    
+    .main-container.checkout .order-box{
+        border: 1px solid #b1b1b1;
+        border-radius: 5px;
+        padding: 20px 35px;
+    }
+    
+     .main-container.checkout .order-box h6 {
+        color: #b1b1b1;
+        font-size: 14px;
+        margin-bottom: 25px;
+     }
+      .main-container.checkout .order-box p {
+        background: #242424;
+        color: #b1b1b1;
+        font-size: 12px;
+        padding: 20px;
+        margin: 0;
+        border-radius: 5px;
+      }
+      
+      .main-container.checkout .blogs {
+        padding-bottom: 50px;  
+      }
+      
+       .main-container.checkout .order-box .links button {
+        background: var(--red);
+        color: #fff;
+        border: none;
+        width: 100%;
+        margin: 20px 0px 0px 0px;
+       }
     
     .main-container.contact-page .contact-us option:disabled,
     .main-container.contact-page .contact-us input::placeholder,
@@ -761,7 +826,7 @@
     color: #b1b1b1;
     }
     
-    .main-container.contact-page .contact-us textarea {
+    .main-container.contact-page .contact-us textarea, .main-container.single-product .travel-details .prod-desc textarea {
     resize: none;
     }
     
@@ -1310,11 +1375,443 @@
         font-weight: 500;
 
     }
-
-    .flipped a i{
-        transform: rotate(180deg);
+    
+    .main-container.single-product .travel-details .prod-pricing h4{
+            font-size: 26px;
+    }
+    
+    .main-container.single-product .travel-details .prod-carousel .item{
+        background: #262626;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .main-container.single-product .travel-details .prod-carousel .item p {
+        color: #b1b1b1;
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .main-container.single-product .travel-details .prod-carousel .item h6 { 
+        color: #fff;
+        font-size: 14px;
+    }
+    
+    .main-container.single-product .travel-details .prod-carousel .item h6 span{
+        font-size: 9px;
+        color: var(--red);
+    }
+    
+    .main-container.single-product .travel-details .prod-pricing h4 span{
+        font-size: 15px;
+        color: #b1b1b1;
+    }
+    
+    .main-container.single-product .travel-details .privacy-policy p i{
+        margin-right: 5px;
+        color: var(--red);
+        font-size: 22px;
+    }
+    
+    
+    .main-container.single-product .travel-details .img-div img {
+        border-radius: 5px;
+    }
+    
+    .main-container.single-product .travel-details h4 {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    
+    .main-container.single-product .travel-details .product .product-details p {
+        color: #b1b1b1;
+        background: var(--red);
+        display: inline-block;
+        font-weight: 600;
+        padding: 5px 10px;
+        font-size: 11px;
+        border-radius: 5px;
+    }
+    
+    .main-container.single-product .travel-details .links button{
+        margin: 0;
+        background: var(--red);
+        border: none;
+        color: #fff;    
+    }
+    
+    .main-container.single-product .travel-details .prod-desc p, .main-container.single-product .travel-details .privacy-policy p, .main-container.single-product .travel-details .desc-box p{
+        color: #b1b1b1;
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+    
+    .main-container.single-product .travel-details .prod-desc textarea, .main-container.checkout label {
+        color: #b1b1b1;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+    
+    .main-container.checkout .container {
+        max-width: 1100px;
+    }
+    
+    .main-container.checkout h3{
+        color: #fff;
+        font-weight: 600;
+        font-size: 30px;
+    }
+    
+    
+    .travel-details .package-details .package-location>h4 {
+        color: #fff;
+        font-size: 38px;
+        font-weight: 600;
+    }   
+    
+    .travel-details .package-details .package-location>p {
+        color: #fff;
+        font-size: 16px;
+    }
+    
+    .travel-details .package-details .package-location p i, .travel-details .package-details .package-duration p i{
+        color: var(--red);
+        margin-right: 8px;
+        font-size: 19px;
+    }
+    
+    .travel-details .package-details .package-duration>p {
+        color: #fff;
+    }
+    
+    .travel-details .package-details .package-duration>p:last-child{
+        margin-left: 20px;
     }
 
+    .travel-details .package-details .package-requirements>h6 {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .travel-details .package-details .package-requirements>ul {
+        margin-left: 20px;
+    }
+    .travel-details .package-details .package-requirements>ul>li {
+        color: #fff;
+        font-size: 14px;
+        padding-bottom: 10px;
+        list-style-type: disc;
+    }
+    
+    .travel-details .package-details .package-requirements>ul>li::marker {
+        color: var(--red);
+    }
+    
+    .travel-details .package-details .package-events>p {
+        color: #fff;
+        font-size: 12px;
+        background: var(--red);
+        padding: 5px 10px;
+        font-weight: 400;
+    }
+    
+    .travel-details .package-details .package-events>p {
+        color: #fff;
+        font-size: 12px;
+        background: var(--red);
+        padding: 5px 10px;
+        font-weight: 400;
+        margin-right: 20px;
+    }
+    
+    .travel-carousel{
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .travel-details .package-details {
+        background: #222;
+        height: 100%;
+        padding: 50px 60px;
+        border-radius: 10px;
+    }
+    
+    .main-container.event-details-page .travel-details .package-details .package-duration>p:last-child{
+        margin-left: 0px;
+    }
+    
+    .main-container.event-details-page .travel-details .package-details .package-location>p {
+        color: #b1b1b1;
+        font-size: 12px;
+    }
+    
+    #decrease {
+        border-radius: 4px 0 0 4px;
+    }
+    
+    #increase {
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .num-inc-dec {
+        display: flex;
+    }
+    
+    .num-inc-dec .value-button{
+        display: inline-block;
+        border: none;
+        margin: 0px;
+        width: 38px;
+        line-height: 38px;
+        height: 38px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+        background: #1a1a1a;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: #fff;    
+    }
+    
+    input#repeat_times::-webkit-outer-spin-button,
+    input#repeat_times::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+    }
+    
+    input#repeat_times{
+        text-align: center;
+        border: none;
+        margin: 0px;
+        width: 38px;
+        height: 38px;
+        outline: 0;
+        background: #2c2c2c;
+        border-radius: 0;
+        color: #fff;
+    }
+    
+    .main-container.event-details-page .travel-details .book-button button[type="submit"]{
+        color: #fff;
+        background: var(--red);
+        width: 100px;
+        height: 38px;
+        border-radius: 5px;
+        margin-left: 15px;
+        border: none;
+    }
+    
+    .main-container.single-blog-page .blog-section .container{
+        max-width: 950px;
+    }
+    
+    .main-container.single-blog-page .blog-section .section-heading>p {
+        color: #b1b1b1;
+        font-size: 18px;
+        font-style: italic;
+    }
+    
+    .main-container.single-blog-page .blog-section .img-div img{
+        max-width: 600px;
+    }
+    
+    .main-container.single-blog-page .blog-section .paras p {
+        color: #b1b1b1;
+        font-size: 16px;
+    }
+    
+    .main-container.single-blog-page .blog-section .paras h4{
+        color: #fff;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    
+    .main-container.single-blog-page .blog-section .user-response h4{
+        color: #fff;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    
+    .main-container.single-blog-page .blog-section .user-response input, .main-container.single-blog-page .blog-section .user-response textarea {
+        width: 100%;
+        background: transparent;
+        border-radius: 5px;
+        border: 1px solid #b1b1b1;
+        padding: 10px 25px;
+        resize: none;
+        color: #b1b1b1;
+        outline: none;
+    }
+    
+    .main-container.single-blog-page .blog-section button{
+        background: var(--red);
+        color: #fff;
+        border: none;
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+    
+    .main-container.single-blog-page .blog-section .comment-details h6{
+        color: #fff;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    
+    .main-container.single-blog-page .blog-section .comment-details p{
+        color: #b1b1b1;
+        font-size: 14px;    
+    }
+    
+    .main-container.single-blog-page .blog-section .comment-details{
+        position: relative;
+        padding: 0 0 10px 0;
+    }
+    
+    .main-container.single-blog-page .blog-section .comment-details::before{
+        content: '';
+        position: absolute;
+        left: 0px;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px solid #505050;
+    }
+    
+    .main-container.single-blog-page .blog-section .blog-reactions p{
+        color: #b1b1b1;
+    }
+    
+    .main-container.single-blog-page .blog-section .blog-reactions div:last-child p{
+        margin-left: 15px;
+    }
+    
+    .main-container.single-blog-page .blog-section .blog-reactions p i {
+        color: var(--red);
+        margin-right: 5px;
+    }
+    
+    .main-container.single-blog-page .blog-section .reply-box i {
+        position: absolute;
+        right: 15px;
+        font-size: 17px;
+        color: var(--red);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .add-to-cart .container{
+        max-width: 1200px;
+    }
+    
+    .add-to-cart .add-prod-details {
+        padding: 0px 50px;
+    }
+    
+    .add-to-cart .add-prod-details h3 {
+        color: #fff;
+        font-weight: 600;
+        font-size: 30px;
+    }
+    
+    .add-to-cart .add-prod-details p {
+        color: var(--red);
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0;
+    }
+    
+    .add-to-cart .add-prod-details ul li {
+        color: #b1b1b1;
+        list-style-type: disc;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+    
+    .add-to-cart .add-prod-details ul {
+        margin-left: 25px;
+        padding: 15px 0px;
+    }
+    
+    .add-to-cart .prod-option label{
+        color: #b1b1b1;
+        margin-right: 15px;
+    }
+    
+    .add-to-cart .add-prod-details .links button {
+        margin-right: 15px;
+    }
+    
+    
+    
+    .slidecontainer {
+      width: 100%; /* Width of the outside container */
+    }
+        
+    /* The slider itself */
+    .slider {
+      -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 5px;
+        padding: 0 !important;
+        background: #000 !important;
+        outline: none;
+        border: none !important;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+    
+    /* Mouse-over effects */
+    .slider:hover {
+      opacity: 1; /* Fully shown on mouse-over */
+    }
+    
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 15px; /* Set a specific slider handle width */
+      height: 15px; /* Slider handle height */
+      background: var(--red); /* Green background */
+      cursor: pointer; /* Cursor on hover */
+      border-radius: 50%;
+    }
+    
+    .slider::-moz-range-thumb {
+      width: 25px; /* Set a specific slider handle width */
+      height: 25px; /* Slider handle height */
+      background: #04AA6D; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 @media(min-width: 577px) and (max-width: 768px){
     
     .home-banner {
@@ -1430,8 +1927,9 @@
     
     .volunteer-signup-page section.volunteer-signup {
         padding: 50px 0px;
+    }   
     }
-}
+
 
 @media( max-width: 576px ){
     :root {
@@ -1626,8 +2124,8 @@
     .testimonial .testimonial-box{
         padding: 20px;
     }
+}
 
-    .red-btn{
-        background-color: #e50000 !important;
-    }
+.red-btn{
+    background-color: #e50000 !important;
 }

@@ -30,8 +30,17 @@ Route::name('front.')->group(function(){
     Route::get('/home', [FrontendController::class, 'welcome'])->name('home');
     Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('about.us');
     Route::get('/blogs', [FrontendController::class, 'blogs'])->name('blogs');
-
+    Route::get('/blog/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.detail');
     Route::get('/events', [FrontendController::class, 'viewEvents'])->name('view.events');
+    Route::get('/charity-donation', [FrontendController::class, 'charityDonation'])->name('charity.donation');
+
+    Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
+    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+    Route::get('/product-promotion', [FrontendController::class, 'productPromotion'])->name('product.promotion');
+    Route::get('/products/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
+
+    Route::get('/travel-packages', [FrontendController::class, 'travelPackages'])->name('travel.packages');
+    Route::get('/travel-package/{slug}', [FrontendController::class, 'travelPackageDetail'])->name('travel.package.detail');
 });
 
 Auth::routes();

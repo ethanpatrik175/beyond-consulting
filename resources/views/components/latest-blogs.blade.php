@@ -6,7 +6,7 @@
                     <div class="blog-card">
                         <div class="blog-card-upper">
                             <div class="img-div">
-                                <img src="{{asset('assets/frontend/images/Rectangle_686.png')}}" alt="">
+                                <a href="{{route('front.blog.detail', 'test-blog')}}"><img src="{{asset('assets/frontend/images/Rectangle_686.png')}}" alt=""></a>
                             </div>
                         </div>
                         <div class="blog-card-lower">
@@ -14,9 +14,7 @@
                                 <p class="text-white">Community</p>
                             </div>
                             <div class="blog-desc">
-                                <h6 class="text-white">Your Wellness Expert On Social Media - Why Is Online Grooming
-                                    A
-                                    Hot Trend?</h6>
+                                <h6 class="text-white"><a href="{{route('front.blog.detail', 'test-blog')}}">Your Wellness Expert On Social Media - Why Is Online Grooming A Hot Trend?</a></h6>
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto rerum sapiente
                                     maxime magni</p>
                             </div>

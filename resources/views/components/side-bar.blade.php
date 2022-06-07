@@ -10,10 +10,10 @@
             <li><a href="{{route('front.blogs')}}" class="@if(Route::is('front.blogs')) {{ 'active' }} @endif"><i class="fa-solid fa-blog"></i></a></li>
             <li><a href="{{route('front.view.events')}}" class="@if(Route::is('front.view.events')) {{ 'active' }} @endif"><i class="fa-solid fa-calendar"></i></a></li>
             @auth()
-                <li><a href="javascript:void(0);"><i class="fa-solid fa-fire-flame-curved"></i></a></li>
-                <li><a href="javascript:void(0);"><i class="fa-solid fa-compass"></i></a></li>
-                <li><a href="javascript:void(0);"><i class="fa-solid fa-heart"></i></a></li>
-                <li><a href="javascript:void(0);"><i class="fa-solid fa-clock"></i></a></li>
+                <li><a href="{{route('front.charity.donation')}}" class="@if(Route::is('front.charity.donation')) {{ 'active' }} @endif"><i class="fa-solid fa-fire-flame-curved"></i></a></li>
+                <li><a href="{{route('front.contact')}}" class="@if(Route::is('front.contact')) {{ 'active' }} @endif"><i class="fa-solid fa-compass"></i></a></li>
+                <li><a href="{{route('front.product.promotion')}}" class="@if(Route::is('front.product.promotion')) {{ 'active' }} @endif"><i class="fa-solid fa-heart"></i></a></li>
+                <li><a href="{{route('front.travel.packages')}}" class="@if(Route::is('front.travel.packages')) {{ 'active' }} @endif"><i class="fa-solid fa-clock"></i></a></li>
             @else
                 <li class="flipped"><a href="{{route('login')}}"><i class="fa-solid fa-right-from-bracket"></i></a></li>
             @endauth

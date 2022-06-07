@@ -15,11 +15,8 @@
                         <div class="col-lg-6 mb-3">
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
-                                <input type="text" id="first_name" name="first_name" data-parsley-required-message="" placeholder="First Name" required
+                                <input type="text" id="first_name" name="first_name" data-parsley-required-message="Please enter first name" placeholder="First Name" required
                                     autofocus />
-                                <div class="invalid-feedback">
-                                    Please enter your first name.
-                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 mb-3">
