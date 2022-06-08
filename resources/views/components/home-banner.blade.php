@@ -1,7 +1,7 @@
 <section class="home-banner">
-    <div class="container center-container">
+    <div class="container center-container @auth {{'text-center'}} @endauth">
         <div class="row align-items-center">
-            <div class="col-lg-5 offset-lg-1">
+            <div class="@auth {{'col-lg-11'}} @else {{'col-lg-5'}} @endauth offset-lg-1">
                 <div class="section-heading">
                     <h5>Welcome To Engaging Singles</h5>
                     <h1>Are You Waiting For <span>Dating?</span></h1>
@@ -10,9 +10,9 @@
                 </div>
                 <div class="links mt-4">
                     <button><a href="javascript:void(0);" onclick="popUpDisplay()">Find Your Date</a></button>
-                    <button><a href="{{route('front.view.events')}}">Book Event Ticket</a></button>
+                    <button><a href="{{ route('front.view.events') }}">Book Event Ticket</a></button>
                 </div>
-                <div class="count-up d-flex justify-content-center justify-content-md-start mt-4">
+                <div class="count-up d-flex justify-content-center @auth {{'justify-content-md-center'}} @else {{'justify-content-md-start'}} @endauth mt-4">
                     <div class="left-count text-center">
                         <h4>10M+</h4>
                         <p>Active Datings</p>
@@ -23,25 +23,28 @@
                     </div>
                 </div>
             </div>
-            <div class="offset-lg-1 d-none d-lg-block col-lg-4">
-                <div class="form-div">
-                    <form>
-                        <div class="section-heading">
-                            <h5>Join Our</h5>
-                            <h4>Membership</h4>
-                            <p>Special Offers For Join With Us</p>
-                        </div>
-                        <input type="text" placeholder="Name">
-                        <input type="email" class="mt-3" placeholder="Email">
-                        <button class="mt-3">
-                            <a href="#">Submit Now</a>
-                        </button>
-                        <p class="black-text mt-4">*By Subscription To Our Terms & Condition And Privacy &
-                            Cookies Policy.</p>
-                    </form>
+            @auth
+            @else
+                <div class="offset-lg-1 d-none d-lg-block col-lg-4">
+                    <div class="form-div">
+                        <form>
+                            <div class="section-heading">
+                                <h5>Join Our</h5>
+                                <h4>Membership</h4>
+                                <p>Special Offers For Join With Us</p>
+                            </div>
+                            <input type="text" placeholder="Name">
+                            <input type="email" class="mt-3" placeholder="Email">
+                            <button class="mt-3">
+                                <a href="#">Submit Now</a>
+                            </button>
+                            <p class="black-text mt-4">*By Subscription To Our Terms & Condition And Privacy &
+                                Cookies Policy.</p>
+                        </form>
+                    </div>
                 </div>
+            @endauth
 
-            </div>
         </div>
     </div>
 </section>

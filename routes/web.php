@@ -47,7 +47,10 @@ Auth::routes();
 Route::get('/admin', function(){ return redirect()->route('admin.login'); });
 Route::get('/admin/login', [LoginController::class, 'adminLogin'])->name('admin.login');
 Route::post('/login-process', [LoginController::class,'loginProcess'])->name('login.process');
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');//->middleware('verified');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('user.dashboard');//->middleware('verified');
+});
 
 Route::middleware(['auth', 'verified'])->name('general.')->group(function(){
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
@@ -57,7 +60,7 @@ Route::middleware(['auth', 'verified'])->name('general.')->group(function(){
 });
 
 /** Admin Routes */
-Route::middleware(['auth'])->prefix('/admin')->group(function(){
+Route::middleware(['auth', 'admin.middleware'])->prefix('/admin')->group(function(){
     Route::resource('speakers', SpeakerController::class);
     Route::get('/speaker/trash', [SpeakerController::class, 'trash'])->name('speakers.trash');
     Route::post('/speaker/update-status', [SpeakerController::class, 'updateStatus'])->name('speakers.update.status');
