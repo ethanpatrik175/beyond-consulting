@@ -6,17 +6,21 @@
 
 @push('styles')
     <style>
-        a.red-label{
+        a.red-label {
             color: rgb(192, 0, 0);
         }
-        a.red-label:hover{
+
+        a.red-label:hover {
             color: #c00000;
         }
+
         .page-item.active .page-link {
             background-color: #c00000;
             border-color: #c00000;
         }
-        .page-link:hover, .page-link{
+
+        .page-link:hover,
+        .page-link {
             color: #c00000;
         }
     </style>
@@ -67,12 +71,16 @@
                                         <p class="m-0 text-white">{{ date('d-M-Y h:i A', strtotime($event->start_at)) }}
                                         </p>
                                     </div>
-                                    <img src="{{ asset('assets/frontend/images/events/' . Str::of($event->image)->replace(' ', '%20')) }}"
-                                        alt="">
+                                    <a href="{{ route('front.event.detail', $event->slug) }}">
+                                        <img src="{{ asset('assets/frontend/images/events/' . Str::of($event->image)->replace(' ', '%20')) }}"
+                                            alt="{{ $event->slug ?? '' }}">
+                                    </a>
                                 </div>
                                 <div class="event-right-box d-flex flex-column justify-content-center">
                                     <div class="event-details">
-                                        <a href="#"><h5>{{ Str::limit($event->title, 70) }}</h5></a>
+                                        <a href="{{ route('front.event.detail', $event->slug) }}">
+                                            <h5>{{ Str::limit($event->title, 70) }}</h5>
+                                        </a>
                                         <p>{{ json_decode(@$event->summary) }}</p>
                                     </div>
                                     <div class="event-date-author">
@@ -80,7 +88,7 @@
                                                 class="text-white">{{ @$event->addedBy->first_name . ' ' . @$event->addedBy->last_name }}
                                             </span> - {{ date('M d, Y', strtotime($event->created_at)) }}</p>
                                         <p class="mt-2">
-                                            <span> <a href="{{route('book.ticket')}}">Book Ticket Now</a> </span>
+                                            <span> <a href="{{ route('book.ticket') }}">Book Ticket Now</a> </span>
                                         </p>
                                     </div>
                                 </div>
@@ -93,7 +101,9 @@
                             </div>
                         </div>
                     @empty
-                        <div class="col-lg-12 mb-4"><h5>No Event Found!</h5></div>
+                        <div class="col-lg-12 mb-4 text-center">
+                            <h5><a href="javascript:void(0);">No Event Found!</a></h5>
+                        </div>
                     @endforelse
 
                     <div class="col-sm-12 text-center">

@@ -12,29 +12,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-heading">
-                            <h5>COMMUNITY</h5>
-                            <h1 class="text-white">Your Wellness Expert On Social Media - Why Is Online Grooming A Hot
-                                Trend?</h1>
-                            <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto rerum sapiente maxime
-                                magni"</p>
+                            <h5>{{ $post->category->title ?? '' }}</h5>
+                            <h1 class="text-white">{{ $post->title ?? '' }}</h1>
+                            <p>{{ $post->description ?? '' }}</p>
                         </div>
                         <div class="img-div text-center mt-4">
-                            <img src="{{asset('assets/frontend/images/Rectangle_686.png')}}">
+                            <img src="{{ asset('assets/frontend/images/posts/' . Str::replace(' ', '%20', $post->icon)) }}">
                         </div>
-                        <div class="paras mt-4">
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ab, quos velit est omnis
-                                voluptate odit mollitia fugiat illum? Delectus illum temporibus aspernatur id tempore
-                                quaerat quibusdam deleniti ea consectetur! Optio qui odit quas quibusdam, natus doloremque
-                                et id a consequatur, blanditiis itaque commodi voluptas mollitia vero omnis aliquid suscipit
-                                qui odit quas quibusdam, natus doloremque et id a consequatur.</p>
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ab, quos velit est omnis
-                                voluptate odit mollitia fugiat illum? Delectus illum temporibus aspernatur id tempore
-                                quaerat quibusdam deleniti ea consectetur! Optio qui odit quas quibusdam, natus doloremque
-                                et id a consequatur, blanditiis itaque commodi voluptas mollitia vero omnis aliquid suscipit
-                                qui odit quas quibusdam, natus doloremque et id a consequatur.</p>
-                        </div>
+                        <div class="paras mt-4"> {!! $post->content ?? '-' !!}</div>
                         <div class="user-response mt-4">
                             <h4>Add Your Response</h4>
                             <form class="mt-4">
@@ -49,7 +34,7 @@
                                         <textarea rows="6" placeholder="Message*"></textarea>
                                     </div>
                                     <div class="col-lg-12 mt-3">
-                                        <button type="submit">Post Comment</button>
+                                        <button type="button">Post Comment</button>
                                     </div>
                                 </div>
                             </form>
@@ -59,7 +44,7 @@
                             <div class="row align-items-center mt-4">
                                 <div class="col-lg-2">
                                     <div class="img-div">
-                                        <img src="{{asset('assets/frontend/images/Mask-2.png')}}">
+                                        <img src="{{ asset('assets/frontend/images/Mask-2.png') }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-10">

@@ -1,18 +1,21 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\GlobalController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\SponsorController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Stmt\Global_;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,7 @@ Route::name('front.')->group(function(){
     Route::get('/blogs', [FrontendController::class, 'blogs'])->name('blogs');
     Route::get('/blog/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.detail');
     Route::get('/events', [FrontendController::class, 'viewEvents'])->name('view.events');
+    Route::get('/event/{slug}', [FrontendController::class, 'eventDetail'])->name('event.detail');
     Route::get('/charity-donation', [FrontendController::class, 'charityDonation'])->name('charity.donation');
 
     Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
@@ -80,6 +84,27 @@ Route::middleware(['auth', 'admin.middleware'])->prefix('/admin')->group(functio
     Route::get('/event/trash', [EventController::class, 'trash'])->name('events.trash');
     Route::post('/event/update-status', [EventController::class, 'updateStatus'])->name('events.update.status');
     Route::post('/event/restore', [EventController::class, 'restore'])->name('events.restore');
+
+    //blogs
+    Route::resource('blogs', PostController::class);
+    Route::post('/blog/updates-status-process', [PostController::class, 'updateStatus'])->name('blog.update.status');
+    Route::get('blog/trash', [PostController::class, 'trash'])->name('blog.trash');
+    Route::post('/blog/restore', [PostController::class, 'restorePost'])->name('blog.restore');
+    //tags
+    Route::resource('tags', TagController::class);
+    Route::post('/tag/updates-status-process', [TagController::class, 'updateStatus'])->name('tag.update.status');
+    Route::get('tag/trash', [TagController::class, 'trash'])->name('tag.trash');
+    Route::post('/tag/restore', [TagController::class, 'restoretags'])->name('tag.restore');
+    //category
+    Route::resource('categories', CategoryController::class);
+    Route::post('/category/updates-status-process', [CategoryController::class, 'updateStatus'])->name('category.update.status');
+    Route::get('category/trash', [CategoryController::class, 'trash'])->name('category.trash');
+    Route::post('/category/restore', [CategoryController::class, 'restoreCategory'])->name('category.restore');
+    //Comments
+    Route::resource('comments', CommentController::class);
+    // Route::post('/comment/updates-status-process', [CommentController::class, 'updateStatus'])->name('comment.update.status');
+    // Route::get('comment/trash', [CommentController::class, 'trash'])->name('comment.trash');
+    // Route::post('/comment/restore', [CommentController::class, 'restorecomments'])->name('comment.restore');
 });
 /**End Admin Routes */
 

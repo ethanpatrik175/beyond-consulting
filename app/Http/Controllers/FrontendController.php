@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\post;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -23,7 +24,16 @@ class FrontendController extends Controller
     {
         $data['pageTitle'] = "Latest Blogs";
         $data['bannerTitle'] = "Latest Blogs";
+        $data['blogs'] = post::with(['user', 'category'])->whereIsActive(1)->whereNull('deleted_at')->paginate(12);
         return view('frontend.blogs', $data);
+    }
+
+    public function blogDetail($slug)
+    {
+        $data['post'] = post::with(['user', 'category'])->whereIsActive(1)->whereNull('deleted_at')->whereSlug($slug)->first();
+        $data['pageTitle'] = "Blog Detail";
+        $data['bannerTitle'] = "Blog Detail";
+        return view('frontend.blog-detail', $data);
     }
 
     public function viewEvents()
@@ -32,6 +42,14 @@ class FrontendController extends Controller
         $data['bannerTitle'] = "Latest Events";
         $data['events'] = Event::where('is_active', 1)->whereNull('deleted_at')->with('addedBy')->orderBy('id', 'desc')->paginate(3);
         return view('frontend.events', $data);
+    }
+
+    public function eventDetail($slug)
+    {
+        $data['pageTitle'] = "Event Detail";
+        $data['bannerTitle'] = "Event Detail";
+        $data['event'] = Event::whereSlug($slug)->whereIsActive(1)->whereNull('deleted_at')->first();
+        return view('frontend.event-detail', $data);
     }
 
     public function charityDonation()
@@ -62,13 +80,6 @@ class FrontendController extends Controller
         return view('frontend.product-promotion', $data);
     }
 
-    public function blogDetail($slug)
-    {
-        $data['pageTitle'] = "Blog Detail";
-        $data['bannerTitle'] = "Blog Detail";
-        return view('frontend.blog-detail', $data);
-    }
-
     public function productDetail($slug)
     {
         $data['pageTitle'] = "Product Detail";
@@ -90,4 +101,3 @@ class FrontendController extends Controller
         return view('frontend.travel-package-detail', $data);
     }
 }
-
