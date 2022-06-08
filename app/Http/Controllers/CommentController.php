@@ -56,28 +56,14 @@ class CommentController extends Controller
                         return $btn1;
                     }
                 })
-                // ->addColumn('icon', function ($row) {
-                //     $imageName = Str::of($row->icon)->replace(' ', '%20');
-                //     if($row->icon){
-                //         $image = '<img src=' . asset('assets/frontend/images/posts/' . $imageName) . ' class="avatar-sm" />';
-                //     }else{
-                //         $image = '<img src=' . asset('assets/backend/images/no-image.jpg') . ' class="avatar-sm" />';
-                //     }
-                //     return $image;
-                // })
+               
                 ->addColumn('comment', function ($row) {
                     return Str::of($row->comment)->limit(100);
                 })
                 ->addColumn('user_id', function ($row) {
                     return $row->first_name . ' ' . $row->last_name . ' <br />(' . Str::of($row->user_id)->upper() . ')';
                 })
-                // ->addColumn('updated_by', function($row){
-                //     if(isset($row->updatedBy)){
-                //         return $row->updated_by_first_name.' '.$row->updated_by_last_name.' <br />('.Str::of($row->updatedBy)->upper().')';
-                //     }else{
-                //         return  '-';
-                //     }
-                // })
+               
                 ->rawColumns(['action', 'created_at', 'is_active', 'user_id', 'updated_by'])
                 ->make(true);
         }
