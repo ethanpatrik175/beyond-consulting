@@ -56,13 +56,13 @@
                                 <p> <i class="fa-solid fa-clock"></i>{{ date('d F Y', strtotime($event->start_at)) }}</p>
                             </div>
                             <div class="book-button d-flex align-items-center  mt-3">
-                                <div class="num-inc-dec">
+                                {{-- <div class="num-inc-dec">
                                     <div class="value-button" id="decrease" onclick="decreaseValue()"
                                         value="Decrease Value">-</div>
                                     <input type="number" id="repeat_times" name="repeat_times" min="1" max="10" value="1">
                                     <div class="value-button" id="increase" onclick="increaseValue()"
                                         value="Increase Value">+</div>
-                                </div>
+                                </div> --}}
                                 <button type="submit">Book Now</button>
                             </div>
                         </div>
