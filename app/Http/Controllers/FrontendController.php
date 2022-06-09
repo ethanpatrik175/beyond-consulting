@@ -40,7 +40,7 @@ class FrontendController extends Controller
     {
         $data['pageTitle'] = "Latest Events";
         $data['bannerTitle'] = "Latest Events";
-        $data['events'] = Event::where('is_active', 1)->whereNull('deleted_at')->with('addedBy')->orderBy('id', 'desc')->paginate(3);
+        $data['events'] = Event::where('is_active', 1)->whereNull('deleted_at')->with('addedBy')->orderBy('id', 'desc')->paginate(6);
         return view('frontend.events', $data);
     }
 
