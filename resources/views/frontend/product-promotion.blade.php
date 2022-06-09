@@ -9,8 +9,9 @@
         <x-banner :banner-title="$bannerTitle"></x-banner>
         <section class="prod-promotion py-5">
             <div class="container">
-                <div class="row">
-                    @for ($i = 1; $i <= 2; $i++)
+
+                @for ($i = 1; $i <= 2; $i++)
+                    <div class="row mb-5">
                         <div class="col-lg-3">
                             <div class="prod-card">
                                 <div class="prod-upper">
@@ -24,7 +25,8 @@
                                 <div class="prod-lower">
                                     <div class="prod-desc">
                                         <p>Lorem ipsum dolor sit</p>
-                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Green T-Shirt</a>
+                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Green
+                                                T-Shirt</a>
                                         </h3>
                                         <div class="stars d-flex">
                                             <i class="fa-solid fa-star"></i>
@@ -54,14 +56,15 @@
                                 <div class="prod-lower">
                                     <div class="prod-desc">
                                         <p>Lorem ipsum dolor sit</p>
-                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Black T-Shirt</a>
-                                        <div class="stars d-flex">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
+                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Black
+                                                T-Shirt</a>
+                                            <div class="stars d-flex">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="prod-pricing position-relative d-flex align-item-center">
@@ -82,14 +85,15 @@
                                 <div class="prod-lower">
                                     <div class="prod-desc">
                                         <p>Lorem ipsum dolor sit</p>
-                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Yellow T-Shirt</a>
-                                        <div class="stars d-flex">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
+                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Yellow
+                                                T-Shirt</a>
+                                            <div class="stars d-flex">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="prod-pricing position-relative d-flex align-item-center">
@@ -109,14 +113,15 @@
                                 <div class="prod-lower">
                                     <div class="prod-desc">
                                         <p>Lorem ipsum dolor sit</p>
-                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Pink T-Shirt</a>
-                                        <div class="stars d-flex">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
+                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Pink
+                                                T-Shirt</a>
+                                            <div class="stars d-flex">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="prod-pricing position-relative d-flex align-item-center">
@@ -125,8 +130,9 @@
                                 </div>
                             </div>
                         </div>
-                    @endfor
-                </div>
+                    </div>
+                @endfor
+
             </div>
         </section>
         <x-footer />
