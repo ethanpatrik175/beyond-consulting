@@ -47,6 +47,7 @@ return array(
     'App\\Models\\Speaker' => $baseDir . '/app/Models/Speaker.php',
     'App\\Models\\Sponsor' => $baseDir . '/app/Models/Sponsor.php',
     'App\\Models\\Tag' => $baseDir . '/app/Models/Tag.php',
+    'App\\Models\\TicketBooking' => $baseDir . '/app/Models/TicketBooking.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Venue' => $baseDir . '/app/Models/Venue.php',
     'App\\Models\\post' => $baseDir . '/app/Models/post.php',
