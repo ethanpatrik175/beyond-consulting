@@ -68,14 +68,17 @@ class PostController extends Controller
                     }
                     return $image;
                 })
+                ->addColumn('title', function ($row) {
+                    return Str::of($row->title)->limit(50);
+                })
                 ->addColumn('description', function ($row) {
-                    return Str::of($row->description)->limit(100);
+                    return Str::of($row->description)->limit(50);
                 })
                 ->addColumn('category_title', function ($row) {
-                    return Str::of($row->category_title)->limit(100);
+                    return Str::of($row->category_title)->limit(50);
                 })
                 ->addColumn('user_id', function ($row) {
-                    return $row->first_name . ' ' . $row->last_name . ' <br />(' . Str::of($row->addedBy)->upper() . ')';
+                    return date('d-M-Y', strtotime($row->created_at)).'<br/>'.$row->first_name . ' ' . $row->last_name ;
                 })
                 ->addColumn('updated_by', function ($row) {
                     if (isset($row->updatedBy)) {
@@ -84,7 +87,7 @@ class PostController extends Controller
                         return  '-';
                     }
                 })
-                ->rawColumns(['action', 'created_at', 'is_active', 'icon', 'description', 'user_id', 'updated_by', 'category_title'])
+                ->rawColumns(['action','is_active', 'icon', 'description', 'user_id', 'updated_by', 'category_title','title'])
                 ->make(true);
         }
 
@@ -117,6 +120,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        
 
         $request->validate([
             'Title' => 'required|max:100',

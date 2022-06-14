@@ -100,4 +100,11 @@ class FrontendController extends Controller
         $data['bannerTitle'] = "Travel Package Detail";
         return view('frontend.travel-package-detail', $data);
     }
+
+    public function Products()
+    {
+        $data['pageTitle'] = "Products";
+        $data['bannerTitle'] = "Products";
+        return view('frontend.product', $data);
+    }
 }

@@ -64,7 +64,6 @@
                                         <th>Id</th>
                                         <th>Image</th>
                                         <th>Title</th>
-                                        <th>Created At</th>
                                         <th>Added By</th>
                                         <th>Updated By</th>
                                         <th>Status(is active?)</th>
@@ -101,9 +100,6 @@
                 }, {
                     data: 'title',
                     name: 'title'
-                }, {
-                    data: 'created_at',
-                    name: 'created_at'
                 }, {
                     data: 'added_by',
                     name: 'added_by'

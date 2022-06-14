@@ -65,7 +65,6 @@
                                         <th>Image</th>
                                         <th>Title</th>
                                         <th>Parent Category</th>
-                                        <th>Created At</th>
                                         <th>Added By</th>
                                         <th>Updated By</th>
                                         <th>Status(is active?)</th>
@@ -105,9 +104,6 @@
                 }, {
                     data: 'parent_title',
                     name: 'parent_title'
-                }, {
-                    data: 'created_at',
-                    name: 'created_at'
                 }, {
                     data: 'added_by',
                     name: 'added_by'

@@ -20,6 +20,9 @@
         <!-- App Css-->
         <link href="{{asset('assets/backend/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{asset('assets/backend/css/custom.css')}}">
+      
+         <link rel="stylesheet" href="farbtastic.css" type="text/css" />
+
         @routes
         <style>
             .logo-lg img {
@@ -109,6 +112,7 @@
                 }
             });
         </script>
+          <script type="text/javascript" src="farbtastic.js"></script>
         @stack('scripts')
         <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
         <!-- App js -->

@@ -41,9 +41,7 @@ class TagController extends Controller
                     // $btn .= ' <a href="'.route('service.images',['services', $row->id]).'" target="_blank" class="text-warning" data-id="'.$row->id.'"><i title="More Images" class="fas fa-images font-size-18"></i></a>';
                     return $btn;
                 })
-                ->addColumn('created_at', function ($row) {
-                    return date('d-M-Y', strtotime($row->created_at)).'<br /> <label class="text-primary">'.Carbon::parse($row->created_at)->diffForHumans().'</label>';
-                })
+               
                 ->addColumn('is_active', function ($row) {
                     if ($row->is_active == '0') {
                         $btn0 = '<div class="square-switch"><input type="checkbox" id="switch' . $row->id . '" class="tags_status" switch="bool" data-id="' . $row->id . '" value="1"/><label for="switch' . $row->id . '" data-on-label="Yes" data-off-label="No"></label></div>';
@@ -67,7 +65,7 @@ class TagController extends Controller
                 //     return Str::of($row->description)->limit(100);
                 // })
                 ->addColumn('added_by', function($row){
-                    return $row->first_name.' '.$row->last_name.' <br />('.Str::of($row->addedBy)->upper().')';
+                    return date('d-M-Y', strtotime($row->created_at)).'<br/>'.$row->first_name.' '.$row->last_name.' <br />('.Str::of($row->addedBy)->upper().')';
                 })
                 ->addColumn('updated_by', function($row){
                     if(isset($row->updatedBy)){
@@ -76,7 +74,7 @@ class TagController extends Controller
                         return  '-';
                     }
                 })
-                ->rawColumns(['action', 'created_at', 'is_active', 'icon', 'added_by', 'updated_by'])
+                ->rawColumns(['action', 'is_active', 'icon', 'added_by', 'updated_by'])
                 ->make(true);
         }
 

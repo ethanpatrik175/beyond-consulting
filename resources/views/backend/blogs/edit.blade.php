@@ -69,7 +69,7 @@
                                                     placeholder="Title here" value="{{ $service->title ?? '' }}" required
                                                     onkeyup="myFunction();">
                                                 <div class="invalid-feedback">
-                                                    Please enter valid name.
+                                                    Please enter valid Title.
                                                 </div>
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@
                                                 <input type="text" class="form-control" name="slug" id="slug"
                                                     placeholder="slug here" value="{{ $service->slug ?? '' }}" required>
                                                 <div class="invalid-feedback">
-                                                    Please enter valid title.
+                                                    Please enter valid Slug.
                                                 </div>
                                             </div>
                                         </div>

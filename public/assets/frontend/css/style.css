@@ -1,4 +1,4 @@
-:root {
+    :root {
     --red: #e50000;
     --maxmenuwh: 70px;
     }
@@ -1750,49 +1750,190 @@
         margin-right: 15px;
     }
     
+    /*Copied*/
     
-    
-    .slidecontainer {
-      width: 100%; /* Width of the outside container */
+    .single-detail-filter-area{
+        background: #2c2c2c;
+        padding: 25px 25px 75px 25px;
+        border-radius: 10px;
     }
-        
-    /* The slider itself */
-    .slider {
-      -webkit-appearance: none;
+    
+    .multi-range-detail {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        padding: 20px 5px 20px;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .multi-range {
+        position: relative;
+        height: 25px;
+        padding: 0px 5px;
+    }
+    
+    .multi-range input[type=range] {
+        position: absolute;
+    }
+    
+    .multi-range input[type=range] {
+        box-sizing: border-box;
         appearance: none;
-        width: 100%;
-        height: 5px;
-        padding: 0 !important;
-        background: #000 !important;
+        width: calc(100% - 10px) !important;
+        margin: 0;
+        padding: 0 2px !important;
+        overflow: hidden;
+        border: 0 !important;
+        border-radius: 1px !important;
         outline: none;
-        border: none !important;
-        opacity: 0.7;
-        -webkit-transition: .2s;
-        transition: opacity .2s;
+        background: linear-gradient(var(--red), var(--red)) no-repeat center !important;
+        background-size: 100% 2px !important;
+        pointer-events: none;
+        
     }
     
-    /* Mouse-over effects */
-    .slider:hover {
-      opacity: 1; /* Fully shown on mouse-over */
+    .multi-range input[type=range]::-webkit-slider-thumb{
+        height: 15px;
+        width: 15px;
+        border-radius: 25px;
+        background-color: var(--red);
+        position: relative;
+        margin: 5px 0;
+        cursor: pointer;
+        appearance: none;
+        pointer-events: all;
     }
     
-    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none; /* Override default look */
-      appearance: none;
-      width: 15px; /* Set a specific slider handle width */
-      height: 15px; /* Slider handle height */
-      background: var(--red); /* Green background */
-      cursor: pointer; /* Cursor on hover */
-      border-radius: 50%;
-    }
+        input[type=range]:active,
+        input[type=range]:focus {
+            outline: none;
+        }
+
+
+        .multi-range {
+        position: relative;
+        height: 20px;
+        padding: 0px 5px;
+        }
+        
+        
+        .multi-range input[type=range]:nth-child(2) {
+        background: none;
+        }
+        
+        .multi-range input[type=range]:nth-child(2)::-webkit-slider-thumb::before {
+        background-color: grey;
+        }
+        
+        /*End*/
+        
+        .contact-us.products .container {
+        max-width: 1100px;
+        }
+        
+        .chat-app .img-div{
+            overflow: hidden;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+        }
+        
+        .chat-app .img-div img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+        
+        .profile-name>p {
+            margin: 0;
+            color: #b1b1b1;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .profile-name>p.last-message {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 10px;
+            font-weight: 300;
+        }
+        
+        .chat-app .messages-area {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 5px 0px 0px 5px;
+        }
+        
+        .chat-app .current-chat .chat-info h4 {
+            margin: 0px 0px 0px 15px;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 400;
+        }
+        
+        .chat-message {
+            color: #b1b1b1;
+            display: flex;
+            align-content: end;
+            flex-wrap: wrap;
+            height: calc(100% - 60px);
+            padding: 20px;
+        }
+        
+        .chat-message>*{
+            width: calc( 100% + var(--bs-gutter-x) );
+        }
+        
+        .current-chat{
+            height: 100%;
+            background: #333;
+            overflow: hidden;
+            border-radius: 0  5px 5px 0;
+        }
+        
+        .current-chat .chat-info {
+            background: #2a2a2a;
+            padding: 10px 20px;
+            border-left: 5px solid var(--red);
+        }
+        
+        .chat-message p{
+            display: inline-block;
+            max-width: 65%;
+            min-width: 150px;
+            padding: 10px;
+            background: var(--red);
+            border-radius: 5px;
+            position: relative;
+            margin: 15px 0px 0px 0px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 300;
+        }
+        
+        .chat-message .row:not(.text-end) + .row:not(.text-end) p, .chat-message .row.text-end + .row.text-end p{
+            margin-top: 5px;
+        }
+        
+        .chat-message .row.text-end p {
+            filter: hue-rotate(200deg);
+        }
+
+        .contact-us.products .prod-title {
+            color: #fff;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: 200;
+            margin-bottom: 0;
+        }
     
-    .slider::-moz-range-thumb {
-      width: 25px; /* Set a specific slider handle width */
-      height: 25px; /* Slider handle height */
-      background: #04AA6D; /* Green background */
-      cursor: pointer; /* Cursor on hover */
-    }
+    .contact-us.products .prod-price {
+        color: var(--red);
+        font-size: 15px;
+        font-weight: 500; 
+    }   
 
     
     
@@ -2124,8 +2265,4 @@
     .testimonial .testimonial-box{
         padding: 20px;
     }
-}
-
-.red-btn{
-    background-color: #e50000 !important;
 }
