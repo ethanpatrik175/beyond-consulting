@@ -19,47 +19,51 @@
                 <div class="row mt-4">
                     <div class="col-lg-6">
                         <div class="img-div">
-                            <img src="{{ asset('assets/frontend/images/beyond-10.jpg') }}">
+                            <img src="{{ asset('assets/frontend/images/products/' . $singleproduct[0]->icon) }}">
                         </div>
                         <div class="row mt-4 justify-content-between">
                             @for ($i = 1; $i <= 5; $i++)
                                 <div class="col-lg-2">
                                     <div class="img-div">
-                                        <img src="{{ asset('assets/frontend/images/beyond-10.jpg') }}">
+                                        <img src="{{ asset('assets/frontend/images/products/' . $singleproduct[0]->icon) }}">
                                     </div>
                                 </div>
                             @endfor
                         </div>
                         <div class="desc-box mt-4">
                             <h4>Description:</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quaerat facere dolorum
-                                possimus ipsum doloremque tempora at inventore quam suscipit.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quaerat facere dolorum
-                                possimus ipsum doloremque tempora at inventore quam suscipit.</p>
+                            <p>{!!$singleproduct[0]->description!!}</p>
+                           
                         </div>
                         <div class="similar-prod mt-4">
                             <h4>Similar Products</h4>
                         </div>
                         <div class="owl-carousel prod-carousel owl-theme">
-                            @for ($i = 1; $i <= 4; $i++)
+                           @forelse($related_product as $repo)
                                 <div class="item">
                                     <div class="img-div">
-                                        <img src="{{ asset('assets/frontend/images/beyond-10.jpg') }}">
+                                        <img src="{{ asset('assets/frontend/images/products/' . $repo->icon) }}">
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet cossectetur...</p>
-                                    <h6>USD 8.88 <span>10.00(2% Off)</span></h6>
+                                    <p>{{$repo->title}}</p>
+                                    <h6>USD {{$repo->sale_price}} <span>USD&nbsp;{{$repo->regular_price}}({{$repo->discount}}% Off)</span></h6>
                                 </div>
-                            @endfor
+                                @empty
+                        <p>No Products Found</p>
+                         @endforelse
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="product">
                             <div class="product-details">
-                                <h4 class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit....</h4>
+                                <h4 class="mb-3">{{$singleproduct[0]->title}}</h4>
+                                @if($singleproduct[0]->is_featured == "1")
                                 <p>Featured Product</p>
+                                @elseif($singleproduct[0]->is_new == "1")
+                                <p>New Product</p>
+                                @endif
                             </div>
                             <div class="prod-pricing d-lg-flex">
-                                <h4>USD 12.80 <span>USD 31.99 (60% Off)</span></h4>
+                                <h4>USD {{$singleproduct[0]->sale_price}}<span>&nbsp;USD {{$singleproduct[0]->regular_price}} ({{$singleproduct[0]->discount}}% Off)</span></h4>
                             </div>
                             <div class="links mt-2">
                                 <button>Add To Cart</button>

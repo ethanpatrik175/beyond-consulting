@@ -72,6 +72,7 @@ return array(
     'App\\Models\\Transaction' => $baseDir . '/app/Models/Transaction.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Venue' => $baseDir . '/app/Models/Venue.php',
+    'App\\Models\\ecommerce' => $baseDir . '/app/Models/ecommerce.php',
     'App\\Models\\post' => $baseDir . '/app/Models/post.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

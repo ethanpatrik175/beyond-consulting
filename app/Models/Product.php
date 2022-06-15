@@ -10,4 +10,8 @@ class Product extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    public function products(){
+        return $this->hasMany(RelatedProduct::class , 'related_product_id','id');
+     }
+    
 }

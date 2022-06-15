@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\GlobalController;
@@ -47,10 +48,13 @@ Route::name('front.')->group(function(){
     Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/product-promotion', [FrontendController::class, 'productPromotion'])->name('product.promotion');
-    Route::get('/products/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
+    Route::get('/products/{id}', [FrontendController::class, 'productDetail'])->name('product.detail');
     Route::get('/products', [FrontendController::class, 'Products'])->name('products');
     Route::get('/travel-packages', [FrontendController::class, 'travelPackages'])->name('travel.packages');
     Route::get('/travel-package/{slug}', [FrontendController::class, 'travelPackageDetail'])->name('travel.package.detail');
+
+    // Route::get('/Category_products', [EcommerceController::class, 'Products_Category']);
+    Route::get('/addtocart', [FrontendController::class, 'addtocart']);
 });
 
 Auth::routes();

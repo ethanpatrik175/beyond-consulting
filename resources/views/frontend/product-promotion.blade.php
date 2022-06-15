@@ -12,12 +12,14 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="single-detail-filter-area">
-                        <select name="category" id="category">
+                    <form method='GET' action='/product-promotion' id='myform'>
+                        <select name="category" id="category" onchange='submitForm();'>
                             <option value="" selected hidden>Select Category</option>
-                            <option value="1">Ocean View</option>
-                            <option value="2">City View</option>
-                            <option value="3">Presidential Suite</option>
+                            @foreach($product_category as $repo)
+                            <option value="{{$repo->id}}">{{$repo->title}}</option>
+                            @endforeach
                         </select>
+                        </form>
                         <div class="multi-range-detail">
                             <span>Price</span>
                             <span>
@@ -37,21 +39,22 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
-                        @for ($i = 1; $i <= 2; $i++) <div class="col-lg-3">
+                       
+                        @forelse($Category_wise_product as $repo)
+                        <div class="col-lg-3">
                             <div class="prod-card">
                                 <div class="prod-upper">
                                     <div class="img-div">
-                                        <a href="{{ route('front.product.detail', 'test-product') }}">
-                                            <img src="{{ asset('assets/frontend/images/gated-tshirt-green-front.png') }}"
+                                        <a href="{{ route('front.product.detail' , ['id' => $repo->id])}}">
+                                            <img src="{{ asset('assets/frontend/images/products/' . $repo->icon) }}"
                                                 alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="prod-lower">
                                     <div class="prod-desc">
-                                        <p>Lorem ipsum dolor sit</p>
-                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Green
-                                                T-Shirt</a>
+                                        <p>{{$repo->title}}</p>
+                                        <h3><a href="{{ route('front.product.detail' , ['id' => $repo->id])}}">{{$repo->slug}}</a>
                                         </h3>
                                         <div class="stars d-flex">
                                             <i class="fa-solid fa-star"></i>
@@ -63,105 +66,23 @@
                                     </div>
                                 </div>
                                 <div class="prod-pricing position-relative d-flex align-item-center">
-                                    <h6 class="text-white m-0">$7.49 - $986.24</h6>
+                                    <h6 class="text-white m-0">$ &nbsp;&nbsp;{{$repo->regular_price}}</h6>
                                     <a href="#"><i class="fa-solid fa-plus"></i></a>
                                 </div>
                             </div>
-                    </div>
-                    <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="prod-card">
-                            <div class="prod-upper">
-                                <div class="img-div">
-                                    <a href="{{ route('front.product.detail', 'test-product') }}">
-                                        <img src="{{ asset('assets/frontend/images/gear003-main-gear-t-shirt.png') }}"
-                                            alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="prod-lower">
-                                <div class="prod-desc">
-                                    <p>Lorem ipsum dolor sit</p>
-                                    <h3><a href="{{ route('front.product.detail', 'test-product') }}">Black T-Shirt</a>
-                                        <div class="stars d-flex">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                </div>
-                            </div>
-                            <div class="prod-pricing position-relative d-flex align-item-center">
-                                <h6 class="text-white m-0">$7.49 - $986.24</h6>
-                                <a href="#"><i class="fa-solid fa-plus"></i></a>
-                            </div>
                         </div>
+                        @empty
+                        <p>No Products Found</p>
+                         @endforelse
                     </div>
-                    <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="prod-card">
-                            <div class="prod-upper">
-                                <div class="img-div">
-                                    <a href="{{ route('front.product.detail', 'test-product') }}">
-                                        <img src="{{ asset('assets/frontend/images/tshirt.png') }}" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="prod-lower">
-                                <div class="prod-desc">
-                                    <p>Lorem ipsum dolor sit</p>
-                                    <h3><a href="{{ route('front.product.detail', 'test-product') }}">Yellow T-Shirt</a>
-                                        <div class="stars d-flex">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                </div>
-                            </div>
-                            <div class="prod-pricing position-relative d-flex align-item-center">
-                                <h6 class="text-white m-0">$7.49 - $986.24</h6>
-                                <a href="#"><i class="fa-solid fa-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4 mt-lg-0">
-                        <div class="prod-card">
-                            <div class="prod-upper">
-                                <div class="img-div">
-                                    <img src="{{ asset('assets/frontend/images/Safety_Pink_Short_Sleeve_T_Shirt_Front__12433 1.png') }}"
-                                        alt="">
-                                </div>
-                            </div>
-                            <div class="prod-lower">
-                                <div class="prod-desc">
-                                    <p>Lorem ipsum dolor sit</p>
-                                    <h3><a href="{{ route('front.product.detail', 'test-product') }}">Pink T-Shirt</a>
-                                        <div class="stars d-flex">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                </div>
-                            </div>
-                            <div class="prod-pricing position-relative d-flex align-item-center">
-                                <h6 class="text-white m-0">$7.49 - $986.24</h6>
-                                <a href="#"><i class="fa-solid fa-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    @endfor
                 </div>
+
+
             </div>
 
-
         </div>
-
-</div>
-</section>
-<x-footer />
+    </section>
+    <x-footer />
 </div>
 @endsection
 
@@ -207,6 +128,9 @@
         $("#lower1-val").html(lowerVal1);
         $("#upper1-val").html(upperVal1);
     });
+    function submitForm(){ 
+     document.getElementById('myform').submit(); 
+    } 
 
 </script>
 @endpush

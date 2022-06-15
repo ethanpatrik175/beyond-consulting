@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\post;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\RelatedProduct;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -73,17 +76,24 @@ class FrontendController extends Controller
         return view('frontend.contact', $data);
     }
 
-    public function productPromotion()
+    public function productPromotion(Request $request)
     {
         $data['pageTitle'] = "Product Promotion";
         $data['bannerTitle'] = "Product Promotion";
+        $data['product_category'] = ProductCategory::whereIsActive(1)->whereNull('deleted_at')->get();
+        // $data['products'] = Product::whereNull('category_id')->whereIsActive(1)->whereNull('deleted_at')->paginate(8);
+        $data['Category_wise_product'] = Product::where('category_id' , $request->category)->whereIsActive(1)->whereNull('deleted_at')->paginate(8);
         return view('frontend.product-promotion', $data);
     }
 
-    public function productDetail($slug)
+    public function productDetail($id)
     {
         $data['pageTitle'] = "Product Detail";
         $data['bannerTitle'] = "Product Detail";
+        $data['singleproduct'] = Product::where('id',$id)->get();
+
+        $product_ids = RelatedProduct::where('product_id' , $id)->get()->pluck('related_product_id');
+       $data['related_product'] = Product::whereIn('id' , $product_ids)->get();
         return view('frontend.product-detail', $data);
     }
 
@@ -100,11 +110,13 @@ class FrontendController extends Controller
         $data['bannerTitle'] = "Travel Package Detail";
         return view('frontend.travel-package-detail', $data);
     }
-
-    public function Products()
+    public function addtocart()
     {
-        $data['pageTitle'] = "Products";
-        $data['bannerTitle'] = "Products";
-        return view('frontend.product', $data);
+        $data['pageTitle'] = "Add To Card";
+        $data['bannerTitle'] = "Add To Card";
+        return view('frontend.add-to-cart', $data);
     }
+
+   
+   
 }
