@@ -1,11 +1,11 @@
 <section class="home-banner">
     <div class="container center-container @auth {{'text-center'}} @endauth">
         <div class="row align-items-center">
-            <div class="@auth {{'col-lg-11'}} @else {{'col-lg-5'}} @endauth offset-lg-1">
+            <div class="@auth {{'col-lg-12'}} @else {{'col-lg-5 offset-lg-1'}} @endauth">
                 <div class="section-heading">
                     <h5>Welcome To Engaging Singles</h5>
                     <h1>Are You Waiting For <span>Dating?</span></h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br /> Lorem Ipsum
                         has been the industry's standard dummy text ever since the 1500s</p>
                 </div>
                 <div class="links mt-4">

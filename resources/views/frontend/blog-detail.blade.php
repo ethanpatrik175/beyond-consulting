@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-heading">
-                            <h5>{{ $post->category->title ?? '' }}</h5>
+                            <h5>{{ $post->category->title ?? 'Uncategorized' }}</h5>
                             <h1 class="text-white">{{ $post->title ?? '' }}</h1>
                             <p>{{ $post->description ?? '' }}</p>
                         </div>
