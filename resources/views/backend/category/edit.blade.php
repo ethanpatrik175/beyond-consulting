@@ -117,7 +117,7 @@
                                         <div class="col-lg-12 mb-3">
                                             <div class="form-group">
                                                 <label class="control-label">Current Icon Image</label>
-                                                <img src="{{ asset('assets/frontend/images/posts/' . $Category->icon) }}"
+                                                <img src="{{ asset('assets/frontend/images/category/' . $Category->icon) }}"
                                                     class="form-control img-thumbnail" alt="">
                                             </div>
                                         </div>

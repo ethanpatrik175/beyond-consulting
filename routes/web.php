@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\GlobalController;
@@ -14,8 +17,13 @@ use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
+use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductMetaController;
+use App\Http\Controllers\RelatedProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,10 +49,20 @@ Route::name('front.')->group(function(){
     Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/product-promotion', [FrontendController::class, 'productPromotion'])->name('product.promotion');
-    Route::get('/products/{slug}', [FrontendController::class, 'productDetail'])->name('product.detail');
-
+    Route::get('/products/{id}', [FrontendController::class, 'productDetail'])->name('product.detail');
+    Route::get('/products', [FrontendController::class, 'Products'])->name('products');
     Route::get('/travel-packages', [FrontendController::class, 'travelPackages'])->name('travel.packages');
     Route::get('/travel-package/{slug}', [FrontendController::class, 'travelPackageDetail'])->name('travel.package.detail');
+
+    // Route::get('/Category_products', [EcommerceController::class, 'Products_Category']);
+    Route::get('/addtocart', [FrontendController::class, 'addtocart']);
+
+    Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+    Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+    Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+    Route::post('/remove/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
+    Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
 });
 
 Auth::routes();
@@ -105,6 +123,31 @@ Route::middleware(['auth', 'admin.middleware'])->prefix('/admin')->group(functio
     // Route::post('/comment/updates-status-process', [CommentController::class, 'updateStatus'])->name('comment.update.status');
     // Route::get('comment/trash', [CommentController::class, 'trash'])->name('comment.trash');
     // Route::post('/comment/restore', [CommentController::class, 'restorecomments'])->name('comment.restore');
+     //Product_Category
+     Route::resource('product_categories', ProductCategoryController::class);
+     Route::post('/product_category/updates-status-process', [ProductCategoryController::class, 'updateStatus'])->name('product_category.update.status');
+     Route::get('product_category/trash', [ProductCategoryController::class, 'trash'])->name('product_category.trash');
+     Route::post('/product_category/restore', [ProductCategoryController::class, 'restore'])->name('product_category.restore');
+     //Product
+     Route::resource('products', ProductController::class);
+     Route::post('/product/updates-status-process', [ProductController::class, 'updateStatus'])->name('product.update.status');
+     Route::get('product/trash', [ProductController::class, 'trash'])->name('product.trash');
+     Route::post('/product/restore', [ProductController::class, 'restore'])->name('product.restore');
+     //Product Meta
+     Route::resource('product_metas', ProductMetaController::class);
+     Route::post('/product_meta/updates-status-process', [ProductMetaController::class, 'updateStatus'])->name('product_meta.update.status');
+     Route::get('product_meta/trash', [ProductMetaController::class, 'trash'])->name('product_meta.trash');
+     Route::post('/product_meta/restore', [ProductMetaController::class, 'restore'])->name('product_meta.restore');
+     //Related Product
+     Route::resource('related_products', RelatedProductController::class);
+     Route::post('/related_product/updates-status-process', [RelatedProductController::class, 'updateStatus'])->name('related_product.update.status');
+     Route::get('related_product/trash', [RelatedProductController::class, 'trash'])->name('related_product.trash');
+     Route::post('/related_product/restore', [RelatedProductController::class, 'restore'])->name('related_product.restore');
+    //brands
+     Route::resource('brands', BrandController::class);
+     Route::post('/brand/updates-status-process', [BrandController::class, 'updateStatus'])->name('brand.update.status');
+     Route::get('brand/trash', [BrandController::class, 'trash'])->name('brand.trash');
+     Route::post('/brand/restore', [BrandController::class, 'restore'])->name('brand.restore');
 });
 /**End Admin Routes */
 

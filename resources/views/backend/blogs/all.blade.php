@@ -59,7 +59,6 @@
                                         <th>Title</th>
                                         <th>description</th>
                                         <th>Category</th>
-                                        <th>Created At</th>
                                         <th>Added By</th>
                                         <th>Updated By</th>
                                         <th>Status(is active?)</th>
@@ -102,9 +101,6 @@
                 }, {
                     data: 'category_title',
                     name: 'category_title'
-                }, {
-                    data: 'created_at',
-                    name: 'created_at'
                 }, {
                     data: 'user_id',
                     name: 'user_id'

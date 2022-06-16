@@ -59,7 +59,7 @@ class CategoryController extends Controller
                 ->addColumn('icon', function ($row) {
                     $imageName = Str::of($row->icon)->replace(' ', '%20');
                     if ($row->icon) {
-                        $image = '<img src=' . asset('assets/frontend/images/posts/' . $imageName) . ' class="avatar-sm" />';
+                        $image = '<img src=' . asset('assets/frontend/images/category/' . $imageName) . ' class="avatar-sm" />';
                     } else {
                         $image = '<img src=' . asset('assets/backend/images/no-image.jpg') . ' class="avatar-sm" />';
                     }
@@ -73,7 +73,7 @@ class CategoryController extends Controller
                 })
 
                 ->addColumn('added_by', function ($row) {
-                    return $row->first_name . ' ' . $row->last_name . ' <br />(' . Str::of($row->addedBy)->upper() . ')';
+                    return date('d-M-Y', strtotime($row->created_at)).'<br/>'.$row->first_name . ' ' . $row->last_name ;
                 })
                 ->addColumn('updated_by', function ($row) {
                     if (isset($row->updatedBy)) {
@@ -82,7 +82,7 @@ class CategoryController extends Controller
                         return  '-';
                     }
                 })
-                ->rawColumns(['action', 'created_at', 'is_active', 'icon', 'title', 'added_by', 'updated_by', 'parent_title'])
+                ->rawColumns(['action', 'is_active', 'icon', 'title', 'added_by', 'updated_by', 'parent_title'])
                 ->make(true);
         }
 
@@ -143,7 +143,7 @@ class CategoryController extends Controller
             }
         } else {
             $image = $request->file('image');
-            if ($image->move('assets/frontend/images/posts/', $image->getClientOriginalName())) {
+            if ($image->move('assets/frontend/images/category/', $image->getClientOriginalName())) {
 
                 $Category->icon = $image->getClientOriginalName();
                 if ($Category->save()) {
@@ -229,7 +229,7 @@ class CategoryController extends Controller
                 ]);
 
                 $image = $request->file('image');
-                if ($image->move('assets/frontend/images/posts/', $image->getClientOriginalName())) {
+                if ($image->move('assets/frontend/images/category/', $image->getClientOriginalName())) {
 
                     $Category->icon = $image->getClientOriginalName();
                     if ($Category->save()) {
@@ -338,7 +338,7 @@ class CategoryController extends Controller
                 ->addColumn('icon', function ($row) {
                     $imageName = Str::of($row->icon)->replace(' ', '%20');
                     if ($row->icon) {
-                        $image = '<img src=' . asset('assets/frontend/images/posts/' . $imageName) . ' class="avatar-sm" />';
+                        $image = '<img src=' . asset('assets/frontend/images/category/' . $imageName) . ' class="avatar-sm" />';
                     } else {
                         $image = '<img src=' . asset('assets/backend/images/no-image.jpg') . ' class="avatar-sm" />';
                     }
