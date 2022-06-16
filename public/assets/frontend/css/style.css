@@ -208,7 +208,77 @@
     .section-heading>h1 {
     text-shadow: 0px 7px rgba(0, 0, 0, .3);
     }
-    
+    table.carttable {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+table.carttable th {
+    padding: 10px 15px;
+    background: black;
+    color: white;
+}
+form#quantityform {
+    display: flex;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+form#quantityform input {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 0px !important;
+}
+.totalbox {
+    display: flex;
+    justify-content: end;
+}
+
+.totalbox .inner {
+    width: 300px;
+}
+.totalbox .inner {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.totalbox {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: right;
+}
+table.carttable tbody {border: 1px solid grey;}
+
+table.carttable thead {
+    border: 1px solid black;
+}
+form#quantityform button,form#cancelform button,.totalbox .inner div button {
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 0px 10px !important;
+}
+table.carttable td {
+    padding: 10px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+table.carttable th {
+    text-transform: capitalize;
+    text-align: center;
+}
+table.carttable td a {
+    color: black;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 17px;
+    align-content: center;
+}
     .section-heading>h1>span {
     color: #000;
     }

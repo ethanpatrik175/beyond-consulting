@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomerController;
@@ -55,6 +56,13 @@ Route::name('front.')->group(function(){
 
     // Route::get('/Category_products', [EcommerceController::class, 'Products_Category']);
     Route::get('/addtocart', [FrontendController::class, 'addtocart']);
+
+    Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+    Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+    Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+    Route::post('/remove/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
+    Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
 });
 
 Auth::routes();

@@ -3,83 +3,119 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\CartItem;
+// use Illuminate\Contracts\Session\Session as SessionSession;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function cartList()
     {
-        //
+        // $data['cartItems']  = \Cart::getContent('cart');
+        // dd( $data['cartItems']);
+      // view the cart items
+      $data['cartItems'] = session()->get('cart');
+        foreach($data['cartItems'] as $row) {
+
+	        echo $row->id; // row ID
+	        echo $row->name;
+	        echo $row->qty;
+	        echo $row->price;
+	
+	        // echo $data['cartItems']->associatedModel->id; // whatever properties your model have
+            // echo $data['cartItems']->associatedModel->name; // whatever properties your model have
+            // echo $data['cartItems']->associatedModel->description; // whatever properties your model have
+}
+        $data['pageTitle'] = "Add To Card";
+        $data['bannerTitle'] = "Add To Card";
+        
+        return view('frontend.add-to-cart', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function addToCart(Request $request)
     {
-        //
+
+        \Cart::session(12)->add(array(
+            'id' => $request->id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => 4,
+            'attributes' => array(),
+            // 'associatedModel' => $Product
+        ));
+        // Session()->put('cart');
+        
+    //     $Cart = Cart::session()->add(array(
+    //     // 'id' => $rowId,
+    //     'name' => $$request->name,
+    //     'price' => $$request->price,
+    //     'quantity' => 4,
+    //     'attributes' => array(),
+    //     'associatedModel' => $request
+    // ));
+
+        // dd($request->all())
+
+        // $Cart = new Cart();
+        // // $Cart->id = $request->id;
+        // $Cart->firstName = $request->name;
+        // $Cart->price = $request->price;
+        // $Cart->quantity = $request->quantity;
+        // $Cart->save();
+       
+
+        // ->add([
+        //     'id' => $request->id,
+        //     'name' => $request->name,
+        //     'price' => $request->price,
+        //     'quantity' => $request->quantity,
+        //     // 'attributes' => array(
+        //     //     'image' => $request->image,
+        //     // )
+        // ]);
+        
+        $items = \Cart::getContent();
+        // dd($items);
+        Session()->put('cart' ,$items);
+        Session()->flash('success', 'Product is Added to Cart Successfully !');
+         
+        return redirect()->route('front.cart.list');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function updateCart(Request $request)
     {
-        //
+      
+        \Cart::session(12)->update($request->id,[
+            'quantity' => 2,
+            'price' => 98.67
+        ]);
+        $items = \Cart::getContent();
+        // dd($items);
+        Session()->put('cart' ,$items);
+        session()->flash('success', 'Item Cart is Updated Successfully !');
+
+        return redirect()->route('front.cart.list');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cart $cart)
+    public function removeCart($id)
     {
-        //
+        
+      
+            $cart = Session()->get('cart');
+            unset($cart[$id]);
+            Session()->put('cart', $cart);
+             return redirect()->route('front.cart.list');
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart $cart)
+    public function clearAllCart()
     {
-        //
-    }
+        Cart::clear();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Cart $cart)
-    {
-        //
-    }
+        session()->flash('success', 'All Item Cart Clear Successfully !');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Cart $cart)
-    {
-        //
+        return redirect()->route('cart.list');
     }
 }
