@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="blog-card-lower">
                                     <div class="blog-category">
-                                        <p class="text-white">{{ $post->category->title ?? '' }}</p>
+                                        <p class="text-white">{{ $post->category->title ?? 'Uncategorized' }}</p>
                                     </div>
                                     <div class="blog-desc">
                                         <h6 class="text-white"><a href="{{ route('front.blog.detail', $post->slug) }}"

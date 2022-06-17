@@ -231,11 +231,14 @@ class PostController extends Controller
         $post->meta_data = json_encode($meta_data);
         $delete_post_tag = PostTag::where('post_id', $id)->get();
         $delete_post_tag->each->delete();
-        foreach ($request->tag_id as $PostCategory) {
-            $PostCategories = new PostTag();
-            $PostCategories->post_id = $id;
-            $PostCategories->tag_id = $PostCategory;
-            $PostCategories->save();
+        
+        if($request->tag_id){
+            foreach ($request->tag_id as $PostCategory) {
+                $PostCategories = new PostTag();
+                $PostCategories->post_id = $id;
+                $PostCategories->tag_id = $PostCategory;
+                $PostCategories->save();
+            }
         }
 
         if ($request->file('image')) {
