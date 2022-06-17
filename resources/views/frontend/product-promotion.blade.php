@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="prod-pricing position-relative d-flex align-item-center">
                                     <h6 class="text-white m-0">$ &nbsp;&nbsp;{{$repo->regular_price}}</h6>
-                                    <a href="#"><i class="fa-solid fa-plus"></i></a>
+                                    <a href="{{ route('front.cart.store' , ['id' => $repo->id])}}"><i class="fa-solid fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
