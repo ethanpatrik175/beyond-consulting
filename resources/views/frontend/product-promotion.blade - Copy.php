@@ -47,6 +47,45 @@
         <x-banner :banner-title="$bannerTitle"></x-banner>
         <section class="prod-promotion py-5">
             <div class="container">
+<<<<<<< Updated upstream
+
+                @for ($i = 1; $i <= 2; $i++)
+                    <div class="row mb-5">
+                        <div class="col-lg-3">
+                            <div class="prod-card">
+                                <div class="prod-upper">
+                                    <div class="img-div">
+                                        <a href="{{ route('front.product.detail' , ['id' => $repo->id])}}">
+                                            <img src="{{ asset('assets/frontend/images/products/' . $repo->icon) }}"
+                                                alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="prod-lower">
+                                    <div class="prod-desc">
+
+                                        <p>{{$repo->title}}</p>
+                                        <h3><a href="{{ route('front.product.detail' , ['id' => $repo->id])}}">{{$repo->slug}}</a>
+
+                                        <p>Lorem ipsum dolor sit</p>
+                                        <h3><a href="{{ route('front.product.detail', 'test-product') }}">Green
+                                                T-Shirt</a>
+                                        </h3>
+                                        <div class="stars d-flex">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="prod-pricing position-relative d-flex align-item-center">
+                                    <h6 class="text-white m-0">$ &nbsp;&nbsp;{{$repo->regular_price}}</h6>
+                                    <h6 class="text-white m-0">$7.49 - $986.24</h6>
+                                    <a href="#"><i class="fa-solid fa-plus"></i></a>
+                                </div>
+=======
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="single-detail-filter-area">
@@ -61,6 +100,7 @@
                                 <span>
                                     $<span id="lower1-val">0</span> - $<span id="upper1-val">300000</span>
                                 </span>
+>>>>>>> Stashed changes
                             </div>
                             <div class="multi-range">
                                 <input type="range" min="0" max="300000" value="0" id="lower1" name="min_price">
@@ -137,6 +177,27 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< Updated upstream
+                                <div class="prod-pricing position-relative d-flex align-item-center">
+                                    <h6 class="text-white m-0">$7.49 - $986.24</h6>
+                                    <a href="#"><i class="fa-solid fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        @empty
+                        <p>No Products Found</p>
+                         @endforelse
+                    </div>
+                </div>
+
+                        <div class="col-lg-3 mt-4 mt-lg-0">
+                            <div class="prod-card">
+                                <div class="prod-upper">
+                                    <div class="img-div">
+                                        <img src="{{ asset('assets/frontend/images/Safety_Pink_Short_Sleeve_T_Shirt_Front__12433 1.png') }}"
+                                            alt="">
+=======
                                 <div class="col-lg-3 mt-4 mt-lg-0">
                                     <div class="prod-card">
                                         <div class="prod-upper">
@@ -164,6 +225,7 @@
                                             <h6 class="text-white m-0">$7.49 - $986.24</h6>
                                             <a href="#"><i class="fa-solid fa-plus"></i></a>
                                         </div>
+>>>>>>> Stashed changes
                                     </div>
                                 </div>
                                 <div class="col-lg-3 mt-4 mt-lg-0">
@@ -197,7 +259,13 @@
                             </div>
                         @endfor
                     </div>
+<<<<<<< Updated upstream
+                @endfor
+
+
+=======
                 </div>
+>>>>>>> Stashed changes
             </div>
 
         </div>
