@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangesInOrderTable extends Migration
+class FourChangesInOrders extends Migration
 {
     /**
      * Run the migrations.
@@ -19,10 +19,14 @@ class ChangesInOrderTable extends Migration
             $table->string('company_name')->after('zip');
             $table->string('order_status')->default('new')->after('company_name');
             $table->string('order_number')->after('order_status');
-
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
@@ -30,7 +34,7 @@ class ChangesInOrderTable extends Migration
             $table->dropColumn('zip');
             $table->dropColumn('company_name');
             $table->dropColumn('order_status');
-            $table->dropColumn('order_status');
+            $table->dropColumn('order_number');
         });
     }
 }

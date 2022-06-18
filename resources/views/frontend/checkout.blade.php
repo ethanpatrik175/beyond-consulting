@@ -9,7 +9,7 @@
     <x-banner :banner-title="$bannerTitle"></x-banner>
     <section class="blogs section-padding">
         <div class="container">
-            <form method="POST" action="{{ route('front.order.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
                 <div class="row">
                     @csrf
                     <div class="col-lg-7">
