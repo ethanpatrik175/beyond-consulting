@@ -11,6 +11,7 @@ use App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\GlobalController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\SponsorController;
@@ -58,10 +59,11 @@ Route::name('front.')->group(function(){
     Route::get('/addtocart', [FrontendController::class, 'addtocart']);
 
     Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
-    Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+    Route::get('cart/{id}', [CartController::class, 'addToCart'])->name('cart.store');
     Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
     Route::post('/remove/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
     Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+   
 
 });
 
@@ -148,11 +150,14 @@ Route::middleware(['auth', 'admin.middleware'])->prefix('/admin')->group(functio
      Route::post('/brand/updates-status-process', [BrandController::class, 'updateStatus'])->name('brand.update.status');
      Route::get('brand/trash', [BrandController::class, 'trash'])->name('brand.trash');
      Route::post('/brand/restore', [BrandController::class, 'restore'])->name('brand.restore');
+     //order
+     Route::resource('orders', OrderController::class);
 });
 /**End Admin Routes */
 
 Route::middleware(['auth'])->prefix()->group(function(){
     Route::get('/book-ticket', [CustomerController::class, 'bookTicket'])->name('book.ticket');
+    Route::post('/order', [OrderController::class, 'store'])->name('store');;
 });
 
 Route::post('/create-slug', [GlobalController::class, 'createSlug'])->name('create.slug');

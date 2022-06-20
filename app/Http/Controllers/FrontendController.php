@@ -64,6 +64,9 @@ class FrontendController extends Controller
 
     public function checkout()
     {
+        $data['cart'] = \Cart::GetContent();
+        $data['product_total'] = \Cart::GetContent()->count();
+        $data['total'] = \Cart::getTotal();
         $data['pageTitle'] = "Checkout";
         $data['bannerTitle'] = "Checkout";
         return view('frontend.checkout', $data);

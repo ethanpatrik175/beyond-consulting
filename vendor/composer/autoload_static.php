@@ -577,6 +577,7 @@ class ComposerStaticInit3289df5ffa9285fd0d103c639d7823e5
         'App\\Http\\Controllers\\SpeakerController' => __DIR__ . '/../..' . '/app/Http/Controllers/SpeakerController.php',
         'App\\Http\\Controllers\\SponsorController' => __DIR__ . '/../..' . '/app/Http/Controllers/SponsorController.php',
         'App\\Http\\Controllers\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/TagController.php',
+        'App\\Http\\Controllers\\TicketBookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/TicketBookingController.php',
         'App\\Http\\Controllers\\TransactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/TransactionController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VenueController' => __DIR__ . '/../..' . '/app/Http/Controllers/VenueController.php',
@@ -609,9 +610,8 @@ class ComposerStaticInit3289df5ffa9285fd0d103c639d7823e5
         'App\\Models\\Speaker' => __DIR__ . '/../..' . '/app/Models/Speaker.php',
         'App\\Models\\Sponsor' => __DIR__ . '/../..' . '/app/Models/Sponsor.php',
         'App\\Models\\Tag' => __DIR__ . '/../..' . '/app/Models/Tag.php',
-
-        'App\\Models\\Transaction' => __DIR__ . '/../..' . '/app/Models/Transaction.php',
         'App\\Models\\TicketBooking' => __DIR__ . '/../..' . '/app/Models/TicketBooking.php',
+        'App\\Models\\Transaction' => __DIR__ . '/../..' . '/app/Models/Transaction.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Venue' => __DIR__ . '/../..' . '/app/Models/Venue.php',
         'App\\Models\\ecommerce' => __DIR__ . '/../..' . '/app/Models/ecommerce.php',

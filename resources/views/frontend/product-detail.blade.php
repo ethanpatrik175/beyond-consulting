@@ -67,13 +67,7 @@
                                 ({{$singleproduct[0]->discount}}% Off)</span></h4>
                     </div>
                     <div class="links mt-2">
-                    <form action="{{ route('front.cart.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" value="{{ $singleproduct[0]->id }}" name="id">
-                        <input type="hidden" value="{{ $singleproduct[0]->title }}" name="name">
-                        <input type="hidden" value="{{ $singleproduct[0]->regular_price }}" name="price">
-                        <input type="hidden" value="{{ $singleproduct[0]->icon }}"  name="image">
-                        <input type="hidden" value="1" name="quantity">
+                    <form action="{{ route('front.cart.store' , ['id' => $singleproduct[0]->id])}}" method="GET" enctype="multipart/form-data">
                         <button class="px-4 py-2 text-white bg-blue-800 rounded">Add To Cart</button>
                     </form>
                     </div>

@@ -97,6 +97,12 @@
                             <span>Brands</span>
                         </a>
                     </li>
+                    <li class="@if (Route::is('orders.*')) {{ 'mm-active' }} @endif">
+                        <a href="{{ route('orders.index') }}" class="waves-effect">
+                            <i class="bx bx-menu"></i>
+                            <span>Order</span>
+                        </a>
+                    </li>
                 @else
                 @endif
             </ul>
