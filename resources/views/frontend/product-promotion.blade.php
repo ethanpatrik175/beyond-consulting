@@ -1,11 +1,10 @@
 @extends('layouts.frontend.master')
 
 @section('title')
-{{ __($pageTitle) }}
+    {{ __($pageTitle) }}
 @endsection
 
 @section('content')
-
 <div class="main-container prod-promotion-page">
     <x-banner :banner-title="$bannerTitle"></x-banner>
     <section class="prod-promotion py-5">
@@ -82,55 +81,54 @@
                             <p>No Products Found</p>
                             @endforelse
                     </div>
+
+ 
                 </div>
 
             </div>
-
-        </div>
-    </section>
-    <x-footer />
-</div>
+        </section>
+        <x-footer />
+    </div>
 @endsection
 
 @push('scripts')
-<script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
 
-<script>
-    var lowerSlider1 = document.querySelector('#lower1'),
-        upperSlider1 = document.querySelector('#upper1'),
-        lowerVal1 = parseInt(lowerSlider1.value);
-    upperVal1 = parseInt(upperSlider1.value);
-
-    upperSlider1.oninput = function () {
-        lowerVal1 = parseInt(lowerSlider1.value);
+    <script>
+        var lowerSlider1 = document.querySelector('#lower1'),
+            upperSlider1 = document.querySelector('#upper1'),
+            lowerVal1 = parseInt(lowerSlider1.value);
         upperVal1 = parseInt(upperSlider1.value);
 
-        if (upperVal1 < lowerVal1 + 4) {
-            lowerSlider1.value = upperVal1 - 4;
+        upperSlider1.oninput = function() {
+            lowerVal1 = parseInt(lowerSlider1.value);
+            upperVal1 = parseInt(upperSlider1.value);
 
-            if (lowerVal1 == lowerSlider1.min) {
-                upperSlider1.value = 4;
+            if (upperVal1 < lowerVal1 + 4) {
+                lowerSlider1.value = upperVal1 - 4;
+
+                if (lowerVal1 == lowerSlider1.min) {
+                    upperSlider1.value = 4;
+                }
             }
-        }
-    };
+        };
 
 
-    lowerSlider1.oninput = function () {
-        lowerVal1 = parseInt(lowerSlider1.value);
-        upperVal1 = parseInt(upperSlider1.value);
+        lowerSlider1.oninput = function() {
+            lowerVal1 = parseInt(lowerSlider1.value);
+            upperVal1 = parseInt(upperSlider1.value);
 
-        if (lowerVal1 > upperVal1 - 4) {
-            upperSlider1.value = lowerVal1 + 4;
+            if (lowerVal1 > upperVal1 - 4) {
+                upperSlider1.value = lowerVal1 + 4;
 
-            if (upperVal1 == upperSlider1.max) {
-                lowerSlider1.value = parseInt(upperSlider1.max) - 4;
+                if (upperVal1 == upperSlider1.max) {
+                    lowerSlider1.value = parseInt(upperSlider1.max) - 4;
+                }
+
             }
+        };
 
-        }
-    };
-
-    $("#lower1,#upper1").on('change', function () {
-
+        $("#lower1,#upper1").on('change', function() {
         $("#lower1-val").html(lowerVal1);
         $("#upper1-val").html(upperVal1);
     });
@@ -138,6 +136,5 @@
     function submitForm() {
         document.getElementById('myform').submit();
     }
-
-</script>
+    </script>
 @endpush
