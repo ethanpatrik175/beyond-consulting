@@ -33,8 +33,8 @@ class CartController extends Controller
 // }
         
         // $data['total'] = \Cart::getTotal();
-        $data['pageTitle'] = "Add To Card";
-        $data['bannerTitle'] = "Add To Card";
+        $data['pageTitle'] = "Add To Cart";
+        $data['bannerTitle'] = "Add To Cart";
     
         // $items = \Cart::getContent();
         // dd($items);
